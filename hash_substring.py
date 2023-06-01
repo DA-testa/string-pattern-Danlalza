@@ -7,7 +7,7 @@ def read_input():
             pattern = input()
             text = input()
         if next == "F":
-            filename = "test/06.txt"
+            filename = "tests/06.txt"
             with open(filename, 'r') as file:
                 pattern = file.readline()
                 text = file.readline()
