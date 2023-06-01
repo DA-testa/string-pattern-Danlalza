@@ -6,10 +6,12 @@ def read_input():
         if next == "I":
             pattern = input()
             text = input()
-            return pattern, text
-             
         if next == "F":
-            return input(), input()
+            filename = "test/06"
+            with open(filename, 'r') as file:
+                pattern = file.readline()
+                text = file.readline()
+        return pattern, text
 
 def print_occurrences(output):
     print(' '.join(map(str, output)))
