@@ -4,16 +4,14 @@ def read_input():
     a = input()
     for next in a:
         if next == "I":
-            pattern = input()[:-1]
-            print(pattern)
-            text = input()[:-1]
-            print(text)
+            pattern = input()
+            text = input()
         if next == "F":
             filename = "tests/06"
             with open(filename, 'r') as file:
-                pattern = file.readline()[:-1]
+                pattern = file.readline()
                 text = file.readline()
-        return pattern, text
+        return pattern[:-1], text
 
 def print_occurrences(output):
     print(' '.join(map(str, output)))
