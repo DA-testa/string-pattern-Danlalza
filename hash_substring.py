@@ -9,7 +9,7 @@ def read_input():
         if next == "F":
             filename = "tests/06"
             with open(filename, 'r') as file:
-                pattern = file.readline()
+                pattern = file.readline()[:-1]
                 text = file.readline()
         return pattern, text
 
