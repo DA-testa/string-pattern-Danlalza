@@ -5,7 +5,9 @@ def read_input():
     for next in a:
         if next == "I":
             pattern = input()
+            print(pattern)
             text = input()
+            print(text)
         if next == "F":
             filename = "tests/06"
             with open(filename, 'r') as file:
