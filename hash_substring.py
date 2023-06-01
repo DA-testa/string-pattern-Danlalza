@@ -19,36 +19,32 @@ def print_occurrences(output):
 def get_occurrences(pattern, text):
     output = []
 
-    n = len(text)
-    m = len(pattern)
-    d = 256
-    q = 101
+    t_len = len(text)
+    p_len = len(pattern)
+    A = 256
+    B = 11
 
     pattern_hash = 0
     window_hash = 0
     h = 1
 
-    for i in range(m - 1):
-        h = (h * d) % q
+    for i in range(p_len - 1):
+        h = (h * A) % B
 
-    for i in range(m):
-        pattern_hash = (d * pattern_hash + ord(pattern[i])) % q
-        window_hash = (d * window_hash + ord(text[i])) % q
+    for i in range(p_len):
+        pattern_hash = (A * pattern_hash + ord(pattern[i])) % B
+        window_hash = (A * window_hash + ord(text[i])) % B
 
-    for i in range(n - m + 1):
+    for i in range(t_len - p_len + 1):
         if pattern_hash == window_hash:
-            if pattern == text[i:i + m]:
+            if pattern == text[i:i + p_len]:
                 output.append(i)
 
-        if i < n - m:
-            window_hash = (d * (window_hash - ord(text[i]) * h) + ord(text[i + m])) % q
-
-            if window_hash < 0:
-                window_hash += q
+        if i < t_len - p_len:
+            window_hash = (A * (window_hash - ord(text[i]) * h) + ord(text[i + p_len])) % B
 
     return output
 
 
 if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
-
