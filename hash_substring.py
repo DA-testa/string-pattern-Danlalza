@@ -4,9 +4,9 @@ def read_input():
     a = input()
     for next in a:
         if next == "I":
-            pattern = input()
+            pattern = input()[:-1]
             print(pattern)
-            text = input()
+            text = input()[:-1]
             print(text)
         if next == "F":
             filename = "tests/06"
